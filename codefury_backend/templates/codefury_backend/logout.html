@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Logout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    color: #F2F2F2;
+    background-color: whitesmoke;
+}
+
+#container-login {
+    background-color: #1D1F20;
+    position: relative;
+    top: 20%;
+    margin: auto;
+    width: 340px;
+    height: auto;
+    border-radius: 0.35em;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#title {
+    position: relative;
+    background-color: #1A1C1D;
+    width: 100%;
+    padding: 20px 0px;
+    border-radius: 0.35em;
+    font-size: 34px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.register {
+    margin: auto;
+    padding: 16px 0;
+    text-align: center;
+    margin-top: 40px;
+    width: 85%;
+    border-top: 1px solid #C1C3C6;
+}
+
+#register-link {
+    margin-top: 10px;
+    padding: 10px 30px;
+    background: #373E4A;
+    color: #C1C3C6;
+    font-weight: bold;
+    border: 0 none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+    </style>
+</head>
+
+<body>
+    <div id="container-login">
+        <div id="title">
+             Logged you out!
+        </div>
+
+        <div class="register">
+            Want to login again?<br><br>
+            <a href="{% url 'codefury_backend:login'%}"><button id="register-link">Login</button></a>
+        </div>
+    </div>
+</body>
+
+</html>

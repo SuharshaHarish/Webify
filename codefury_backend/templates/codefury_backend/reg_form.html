@@ -1,0 +1,83 @@
+
+<html>
+<body>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background-color: whitesmoke;
+                font-family: 'Raleway', sans-serif;
+            }
+            .form-control{
+                    background: #373E4A;
+                    color: #C1C3C6;
+                    font-weight: bold;
+                    border: 0 none;
+                    border-radius: 3px;       
+            }
+             #id_username,  #id_password1, #id_password2, #id_email,#id_phone_no,#id_referer_username,#id_education,#id_adhaar_number,#id_salary_expected,#id_experience,#id_living_location,#id_previous_job,#id_skills,#id_languages_known,#id_working_hours,#id_shift, #id_company_name, #id_job_type, #id_jobs_number,
+            #id_salary, #id_minimum_qualification, #id_minimum_experience, #id_languages_required, #id_job_location,
+            #id_job_hours, #id_job_shift{
+                background: #373E4A;
+                color: #C1C3C6;
+                font-weight: bold;
+                border: 0 none;
+                border-radius: 3px;
+                display: block;
+                width: 100%;
+                height: calc(1.5em + .75rem + 2px);
+                padding: .375rem .75rem;
+                font-size: 1rem;
+                line-height: 1.5;
+                transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+               } 
+            label{
+                color: white;
+            }
+            input[type=text]:focus {
+            border: 1px solid #373b3d;
+            }
+            *:focus {
+            outline: none;
+            }
+
+            @media screen and (max-width: 772px) {
+                #id_username, #id_password1, #id_password2, #id_email,#id_phone_no,#id_referer_username,#id_education,#id_adhaar_number,#id_salary_expected,#id_experience,#id_living_location,#id_previous_job,#id_skills,#id_languages_known,#id_working_hours,#id_shift, #id_company_name, #id_job_type, #id_jobs_number,
+                #id_salary, #id_minimum_qualification, #id_minimum_experience, #id_languages_required, #id_job_location{
+                 width: 98%; 
+                }
+            }
+        </style>
+
+  <div class="container">
+    <div>
+        <h2 style="text-align:center; padding-top: 10px;padding-bottom:0px;"> CREATE ACCOUNT</h2><br>
+        <div class="jumbotron" style="width:40%;margin:20px auto;padding-bottom:10px;padding-top:20px;margin-bottom: 0;  background-color: #1D1F20;">
+            <form method="POST">
+              {% csrf_token %}
+              {{ form1.as_p}}
+              {{ form2.as_p}}
+
+                
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="form-group col-md-6">
+
+                        <button class="btn btn-lg btn-primary btn-block" style="background: #d4dceb;
+                        color: rgb(37, 30, 30);
+                        font-weight: bold;
+                        border: 0 none;
+                        cursor: pointer;
+                        border-radius: 3px;">SUBMIT</button>
+                    </div> 
+                    <div class="col-md-3"></div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

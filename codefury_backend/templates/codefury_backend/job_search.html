@@ -1,0 +1,243 @@
+{% extends 'codefury_backend/base.html' %} {% load static %} {% block body %}
+
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap");
+  .container {
+    width: 1fr;
+    height: 1fr;
+    margin: 20px auto;
+    padding: 40px 40px;
+    background-color: whitesmoke;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    border: solid #333 1px;
+    border-radius: 2rem;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: large;
+  }
+  /* .container .sep {
+    display: block;
+  }
+  .w_hours {
+    color: #333;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 20px;
+  }
+  #working_hours {
+    width: 100%;
+    padding: 10px;
+    border: solid #333 2px;
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: large;
+  } */
+  .j_location h2,
+  .j_type h2 {
+    color: #333;
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 30px;
+  }
+  .j_location {
+    color: black;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    font-size: large;
+  }
+  .j_location .first_cities {
+    padding-right: 25px;
+    padding-bottom: 20px;
+  }
+
+  .j_location .last_cities {
+    padding-bottom: 20px;
+  }
+  .j_type .first_jobs,
+  .last_jobs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .j_type .first_jobs {
+    justify-content: space-evenly;
+  }
+  .j_type .last_jobs {
+    justify-content: space-evenly;
+  }
+
+  .btn {
+    background-color: #333; /* Green */
+    border: none;
+    border-radius: 10px;
+    font-family: "Josefin Sans", sans-serif;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+  .btn:hover {
+    /* background-color: #555; */
+    box-shadow: 0 2px 20px #333;
+    transition: 0.4s;
+  }
+
+  .j_btn {
+    font-family: "Josefin Sans", sans-serif;
+    font-size: 18px;
+    box-shadow: 0 5px 15px -5px #00000070;
+    background: transparent;
+    color: grey;
+    border: 3px solid grey;
+    padding-left: 22px;
+    padding-right: 22px;
+    border-radius: 20px;
+    outline: none;
+    text-align: center;
+    min-width: 120px;
+    min-height: 150px;
+  }
+
+  .j_btn:focus {
+    /* margin: 10px; */
+    border-radius: 30px;
+    box-shadow: 0 15px 15px -5px #00000070;
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(to left, #ff416c 0%, #ff4b2b 100%);
+    /* transition: 0.3s; */
+
+    /* margin-left: 500px;
+  margin-top: 30px;
+  margin-bottom: 10px; */
+    outline: none;
+    /* text-align: center; */
+    /* font-size: 24px; */
+    /* margin-left: 685px; */
+  }
+
+  .j_btn:hover {
+    /* transform: translate(10px);
+  transition: 0.7s; */
+    box-shadow: 0 2px 20px #333;
+    transition: 0.4s;
+  }
+  .j_btn:active {
+    border: 2px solid red;
+    background-color: lightgray;
+    box-shadow: 0 5px #666;
+    /* transform: translateY(4px); */
+  }
+</style>
+
+<div class="container">
+  <form action="" method="POST">
+    {% csrf_token %}
+
+    <div class="j_location">
+      <h2>Location:</h2>
+      <div class="first_cities">
+        <input
+          id="bangalore"
+          type="radio"
+          name="job_location"
+          value="Bangalore"
+        />
+        <label for="bangalore">Bangalore </label>
+        <input id="mumbai" type="radio" name="job_location" value="Mumbai" />
+        <label for="mumbai">Mumbai </label>
+        <input id="delhi" type="radio" name="job_location" value="Delhi" />
+        <label for="delhi">Delhi </label>
+      </div>
+      <div class="last_cities">
+        <input
+          id="hyderabad"
+          type="radio"
+          name="job_location"
+          value="Hyderabad"
+        />
+        <label for="hyderabad">Hyderabad </label>
+        <input id="kolkata" type="radio" name="job_location" value="Kolkata" />
+        <label for="kolkata">Kolkata</label>
+        <input
+          id="Chandigarh"
+          type="radio"
+          name="job_location"
+          value="Chandigarh"
+        />
+        <label for="chandigarh">Chandigarh</label>
+      </div>
+    </div>
+    <div class="j_type">
+      <h2>Type of job:</h2>
+      <div class="first_jobs">
+        <button
+          id="Driver & security"
+          class="j_btn"
+          type="submit"
+          name="job_type"
+          value="Driver & security"
+        >
+          Driver & security
+        </button>
+        <button
+          id="Construction & Machinist"
+          class="j_btn"
+          type="submit"
+          name="job_type"
+          value="Construction & Machinist"
+        >
+          Construction & Machinist
+        </button>
+        <button
+          id="Household services"
+          class="j_btn"
+          type="submit"
+          name="job_type"
+          value="Household services"
+        >
+          Household services
+        </button>
+      </div>
+      <br />
+      <div class="last_jobs">
+        <button
+          id="Finance & Management"
+          class="j_btn"
+          type="submit"
+          name="job_type"
+          value="Finance & Management"
+        >
+          Finance & Management
+        </button>
+        <button
+          id="Sales & Management"
+          class="j_btn"
+          type="submit"
+          name="job_type"
+          value="Sales & Management"
+        >
+          Sales & Management
+        </button>
+        <button
+          id="Cashier & reciptionist"
+          class="j_btn"
+          type="submit"
+          name="job_type"
+          value="Cashier & reciptionist"
+        >
+          Cashier & reciptionist
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

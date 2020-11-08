@@ -1,0 +1,103 @@
+{% extends 'codefury_backend/base.html' %} {% block body %}
+
+<style>
+  .iconify {
+    color: lightgreen;
+  }
+  .container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    padding: 12px 20px;
+    padding-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  h2 {
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 10px ;
+  }
+
+  p {
+    text-align: left;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 20px;
+  }
+  .val {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+  }
+  #select_btn{
+    margin-bottom: 10px;
+    background: #373E4A;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+  }
+</style>
+<div class="container">
+  <h1 class="title">Candidates</h1>
+  <br />
+  {%for candidate in candidates%}
+
+  <h2>
+    Name : {{candidate.name}} {% if candidate.recommended_user %}
+    <span
+      class="iconify"
+      data-icon="zmdi-badge-check"
+      data-inline="false"
+    ></span>
+
+    {%endif%}
+  </h2>
+
+  <p>
+    Experience :
+    <span class="val"> {{candidate.experience}}</span>
+  </p>
+  <p>Qualification : <span class="val">{{candidate.education}}</span></p>
+  <p>
+    Salary Expected : <span class="val">{{candidate.salary_expected}}</span>
+  </p>
+  <p>Previous Job : <span class="val">{{candidate.previous_job}}</span></p>
+  <p>Skills : <span class="val">{{candidate.skills}}</span></p>
+  <p>
+    Languages Known : <span class="val">{{candidate.languages_known}}</span>
+  </p>
+  <p>
+    Living Location : <span class="val">{{candidate.living_location}}</span>
+  </p>
+<p>
+  <a href="{%url 'codefury_backend:home'%}"><button type="submit" class= "btn btn-danger" id="select_btn">Select</button></a>
+  <br />
+</p>
+  {% endfor %}
+</div>
+{% endblock %}

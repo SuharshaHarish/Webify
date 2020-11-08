@@ -1,0 +1,56 @@
+{% extends 'codefury_backend/base.html' %} {% load static %} {%block body%}
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500&display=swap');
+
+  #navbar {
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.3s;
+  }
+
+  #navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 15px;
+    font-family: 'Montserrat', ;
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 17px;
+
+  }
+
+  #navbar a:hover {
+    background-color: none;
+    color: gray;
+  }
+</style>
+<div id="navbar">
+  <a href="{% url 'codefury_backend:home' %}">Home</a>
+  {% if user.is_authenticated %}
+  <a href="{% url 'codefury_backend:login' %}">Search</a>
+  <a href="{% url 'codefury_backend:logout' %}">Logout</a>
+  {% else %}
+  <a href="{% url 'codefury_backend:login' %}">Login</a>
+  <a href="{% url 'codefury_backend:register' %}">Register</a>
+  {% endif %}
+</div>
+<script>
+  // Navbar
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("navbar").style.top = "0";
+    } else {
+      document.getElementById("navbar").style.top = "-55px";
+    }
+    prevScrollpos = currentScrollPos;
+  };
+</script>
+
+{% endblock %}

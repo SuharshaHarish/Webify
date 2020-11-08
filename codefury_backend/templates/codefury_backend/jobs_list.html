@@ -1,0 +1,70 @@
+{% extends 'codefury_backend/base.html' %} {% block body %}
+
+<style>
+  .container {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    padding: 12px 20px;
+  }
+
+  h1 {
+    font-size: 24px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  h2 {
+    font-size: 22px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 700;
+    padding-left: 20px;
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  p {
+    text-align: left;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    padding-left: 20px;
+  }
+  .val {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+  }
+</style>
+
+<div class="container">
+  {%for job in jobs%}
+  <h1 class="title">Company : {{job.company_name}}</h1>
+  <br />
+  <p>Job Description : <span class="val">{{job.job_type}}</span></p>
+  <p>Salary : <span class="val">{{job.salary}}</span></p>
+  <p>Job Available : <span class="val">{{job.jobs_number}}</span></p>
+  <p>
+    Minimum Qualification :
+    <span class="val">{{job.minimum_qualification}}</span>
+  </p>
+  <p>
+    Minimum Experience : <span class="val">{{job.minimum_experience}}</span>
+  </p>
+  <p>Job Location : <span class="val">{{job.job_location}}</span></p>
+  <p>Job Hours : <span class="val">{{job.job_hours}}</span></p>
+  <p>Shift required : <span class="val">{{job.job_shift}}</span></p>
+
+  {% endfor %}
+</div>
+
+{% endblock %}
